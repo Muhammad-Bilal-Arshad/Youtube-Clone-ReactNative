@@ -94,13 +94,13 @@ export const videos = [
   },
   {
     id: 5,
-    title: 'Fruit Shop UI - React Native Tutorial',
-    channelTitle: 'Code With Nomi',
-    thumbnail: require('../assets/images/thumb5.png'),
-    avatar: require('../assets/images/avatar5.png'),
-    viewCount: '5K',
-    duration: '20:45',
-    publishedText: '11 days ago'
+    title: 'SIDEMEN CHARITY MATCH 2023 (Goals & Highlights)',
+    channelTitle: 'Sidemen',
+    thumbnail: require('../assets/images/sidementhumbnail.jpg'),
+    avatar: require('../assets/images/sidemen.jpg'),
+    viewCount: '11M',
+    duration: '15:40',
+    publishedText: '1 month ago'
   },
 
 ]

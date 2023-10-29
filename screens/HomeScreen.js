@@ -3,9 +3,10 @@ import { View,Text, TextInput,Image, ScrollView, TouchableOpacity } from 'react-
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {themeColors} from '../theme'
 import * as Icon from 'react-native-feather'
-import { categories, shortVideos } from '../constants'
+import { categories, shortVideos, videos } from '../constants'
 import { StatusBar } from 'expo-status-bar'
 import ShortCard from '../components/ShortCard'
+import VideoCard from '../components/VideoCard'
 
 
 export default function HomeScreen() {
@@ -61,6 +62,8 @@ export default function HomeScreen() {
             </ScrollView>
 
           </View>
+          {/* starting vid/suggested video */}
+          <VideoCard item = {videos[4]} />
             {/* short videos */}
             <View 
            className="mt-2 py-5 space-y-3 border-t-zinc-700 border-b-zinc-700 border-4 border-l-0 border-r-0">
@@ -72,11 +75,18 @@ export default function HomeScreen() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} 
               className="px-4">
                 {
-                  shortVideos.map((item, index)=> <ShortCard item={item} key={index} />)
+                  shortVideos.map((short, index)=> <ShortCard item={short} key={index} />)
                 }
             </ScrollView>
 
           </View>
+          {/*Video*/ }
+          <ScrollView showsVerticalScrollIndicator = {false}>
+            {
+              videos.map((video,index) => <VideoCard item = {video} key = {index} />)
+            }
+
+          </ScrollView>
         </ScrollView>
       </View>
   )
