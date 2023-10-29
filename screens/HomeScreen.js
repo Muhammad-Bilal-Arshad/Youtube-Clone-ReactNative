@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { View,Text, TextInput,Image, ScrollView, TouchableOpacity } from 'react-native'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {themeColors} from '../theme'
@@ -7,11 +7,25 @@ import { categories, shortVideos, videos } from '../constants'
 import { StatusBar } from 'expo-status-bar'
 import ShortCard from '../components/ShortCard'
 import VideoCard from '../components/VideoCard'
+import { trending } from '../dynamicapi/youtube'
 
 
 export default function HomeScreen() {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [videos,setVideos] = useState([])
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  const fetchData = async() =>{
+    const data = await trending();
+    console.log('video : ' ,data[0])
+    setVideos(data)
+  }
   return (
+  
+
+
     
       <View style ={{backgroundColor: themeColors.bg}} className = 'flex-1'>
         <StatusBar style = 'light' />
@@ -63,7 +77,7 @@ export default function HomeScreen() {
 
           </View>
           {/* starting vid/suggested video */}
-          <VideoCard item = {videos[4]} />
+          {/*<VideoCard item = {videos[4]} /> */}
             {/* short videos */}
             <View 
            className="mt-2 py-5 space-y-3 border-t-zinc-700 border-b-zinc-700 border-4 border-l-0 border-r-0">
