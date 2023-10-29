@@ -51,7 +51,7 @@ export const shortVideos = [
 
 ]
 
-export const videos = [
+export const video = [
   {
     id: 1,
     title: 'Homeless Man Buys A Lamborghini',
